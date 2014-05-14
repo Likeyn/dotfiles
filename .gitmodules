@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "bin/git-all"]
+	path = bin/git-all
+	url = https://github.com/Likeyn/git-all.git
