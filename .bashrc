@@ -1,0 +1,184 @@
+#
+# Cool command-line programs
+#
+#	cowsay   - No comment
+#	mutt     - Email client
+#	fortune  - Random quotes
+#	atool    - Archive manager
+#	bar      - Shell progress bar
+#	tree     - Files/Dir tree list
+#	pwgen    - Password generation
+#	tig      - Command-line git GUI
+#	fasd     - Quick file/dir access
+#	links2   - Text-based web browser
+#	tudu     - Hierarchical ToDo list
+#	htop     - Interactive process viewer
+#	tmux     - Terminal multiplexer (screen)
+#
+# Check this to enable 256-colors on capable terminals
+# @link https://fedoraproject.org/wiki/Features/256_Color_Terminals
+#
+# This file is sourced by all *interactive* bash shells on startup,
+# including some apparently interactive shells such as scp and rcp
+# that can't tolerate any output.  So make sure this doesn't display
+# anything or bad things will happen !
+
+# Test for an interactive shell.  There is no need to set anything
+# past this point for scp and rcp, and it's important to refrain from
+# outputting anything in those cases.
+if [[ $- != *i* ]] ; then
+	# Shell is non-interactive.  Be done now!
+	return
+fi
+
+# Fallback to xterm when SSHed into
+# @link https://fedoraproject.org/wiki/Features/256_Color_Terminals
+#test "$SSH_CONNECTION" && export TERM='xterm'
+
+# Don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# Append to the history file, don't overwrite it
+shopt -s histappend
+
+# For setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=5000
+HISTFILESIZE=5000
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+shopt -s globstar
+
+# Free Ctrl + S from its "Scroll stop" binding
+# so that I can use it as "Forward search"
+stty stop ""
+
+# Without this, git has troubles working with gpg
+export GPG_TTY=$(tty)
+
+# Add a potential home 'bin' folder to the user's PATH
+if [ -d "${HOME}/bin" ]; then export PATH="${PATH}:${HOME}/bin"; fi
+
+# Includes supplied files
+include() { if [ -f $1 ]; then . $1; fi; }
+
+# Tests if a given command exists
+exists() { command -v $1 &> /dev/null; }
+
+# Go back x directories
+# @link http://alias.sh/go-back-n-directories
+b() {
+	if [ $# -eq 0 ]; then
+		cd ..
+	else
+		str=""
+		count=0
+		while [ "$count" -lt "$1" ]; do
+			str=$str"../"
+			let count=count+1
+		done
+		cd $str
+	fi
+}
+
+# Creates a directory and cd in it
+function mcd() { mkdir -p "$1" && cd "$1"; }
+
+# Generates a random sequence of chars
+function randchars() {
+	NUM=15
+	if [ ! -z $1 ]; then NUM=$1; fi
+	cat /dev/urandom | tr -dc '0-9a-zA-Z!@#$%^&*_+-' | head -c $NUM
+	echo ''
+}
+
+# Bash prompt definition
+if exists __git_ps1; then
+	export GIT_PS1_SHOWDIRTYSTATE=1 GIT_PS1_SHOWCOLORHINTS=1 GIT_PS1_SHOWUPSTREAM=auto GIT_PS1_DESCRIBE_STYLE=branch
+	export PS1='[\[\033[1;31m\]\A\[\033[00m\]] \[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[0;33m\]$(__git_ps1)\[\033[0m\]\$ '
+else
+	export PS1='[\[\033[1;31m\]\A\[\033[00m\]] \[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+fi
+
+
+# Alias definitions
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+if exists notify-send; then
+	alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+fi
+
+# Fasd init
+# Have to place it before my aliases otherwise fasd will override them.
+# @link https://github.com/clvv/fasd
+if exists fasd; then
+
+	# Initialize fasd
+	eval "$(fasd --init auto)"
+
+	# Fasd aliases
+	alias c='f -e cat'
+	if exists vim; then alias v='a -e vim'; fi
+	if exists nano; then alias n='f -e nano'; fi
+	if exists less; then alias l='f -e less'; fi
+	if exists most; then alias m='f -e most'; fi
+fi
+
+# Basic aliases
+alias eecho='echo -e'
+alias ls='ls --color=auto -lh'
+alias la='ls --color=auto -alh'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias freq='cut -f1 -d" " $HISTFILE | sort | uniq -c | sort -nr | head -n 30'
+alias tube='display http://www.tfl.gov.uk/assets/downloads/standard-tube-map.gif'
+
+# Git aliases
+if exists git; then
+
+	alias g=git
+	alias gk=gitk
+	alias gp='git --no-pager'
+
+	# Git-all allows running git commands on multiple repositories at once
+	if exists git-all; then alias gl=git-all; fi
+
+	# Autocomplete for git aliases as well
+	if exists _git; then
+		complete -o default -o nospace -F _git g
+		complete -o default -o nospace -F _git gp
+	fi
+fi
+
+# Apt-get aliases
+if exists apt-get; then
+	alias ags='apt-cache search'
+	alias agsh='apt-cache show'
+	alias agi='sudo apt-get install'
+	alias agr='sudo apt-get remove'
+	alias agud='sudo apt-get update'
+	alias agug='sudo apt-get upgrade'
+	alias agc='sudo apt-get autoclean && sudo apt-get autoremove'
+	alias agu='echo "---[ Updating ]---" && agud && echo -e "\n---[ Upgrading ]---" && agug && echo -e "\n---[ Cleaning ]---" && agc'
+fi
+
+# Symfony aliases
+alias sfy='php symfony'
+alias scc='sfy cc'
+
+# Random cow quote on login
+if exists cowsay && exists fortune; then cowsay "$(fortune)"; fi;
+
+# Happy Programmer's Day
+# @link https://en.wikipedia.org/wiki/Programmers%27_Day
+if [[ $( date +%-j ) -eq $(( 2 ** 8 )) ]]; then
+	if exists figlet; then
+		figlet "Happy Programmer's Day"
+	else
+		echo "Happy Programmer's Day"
+	fi
+fi
+
