@@ -1,0 +1,19 @@
+#
+# Global gitignore configuration
+#
+
+# Aptana / Eclipse files
+.project
+.buildpath
+.settings/
+
+# Vim swap files
+*.swp
+
+# Symfony cache & log folders
+/log/
+/cache/
+
+# OSX fuckin' DStore files -_-
+.DS_Store
+

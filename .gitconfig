@@ -1,0 +1,142 @@
+[user]
+	name = Pierre-François Clement
+	# Email isn't set here, because I believe it should be set
+	# at a machine level, sometimes even at a repository level
+	# E.G - when you have to work with multiple email accounts
+
+[core]
+	excludesfile = ~/.gitignore_global
+	# This should also be set at a machine level if
+	# paths happen to be different between machines
+
+[alias]
+	# Basics
+	st = status -bs
+	br = branch
+	ba = branch -a
+	bv = branch -vv
+	co = checkout
+	sh = show
+	di = diff
+	dc = diff --cached
+	fp = format-patch
+
+	# Commit
+	ai = add -i
+	ap = add -p
+	an = add -N
+	aa = add --all
+	ci = commit -v
+	cs = commit -vsS
+	cp = cherry-pick
+	ca = commit -v --amend
+	cia = commit -va
+	csa = commit -vsaS
+	cpn = cherry-pick -nx
+	caa = commit -va --amend
+	cas = commit -vsS --amend
+	rs = reset
+	rsl = reset HEAD^
+	an-all = !git add -N $(git ls-files --exclude-standard -o)
+
+	# Fetch, merge & push
+	ph = push --follow-tags -v
+	pl = pull -v
+	fe = fetch -vp
+	fa = fetch --all -vp
+	fu = fetch -vp upstream
+	mg = merge -v
+	mu = merge -v @{u}
+	mgt = mergetool
+
+	# Stash
+	sl = stash list
+	sv = stash save
+	sp = stash pop
+	#sd = stash drop  # Dangerous :p
+	sa = stash apply
+	sb = stash branch
+	ss = stash show
+	svp = stash save -p
+
+	# Bisect
+	bb = bisect bad
+	bg = bisect good
+	blg = bisect log
+	bst = bisect start
+	brs = bisect reset
+
+	# Rebase
+	rba = rebase --abort
+	rbs = rebase --skip
+	rbc = rebase --continue
+	rbe = rebase --edit-todo
+
+	# Files & index
+	cl = clean
+	ls = ls-files --exclude-standard
+	lm = ls-files --exclude-standard -m
+	lo = ls-files --exclude-standard -o
+	ls-au = !git ls-files -v | grep --colour=none ^h | cut -c 3-
+	au = update-index --assume-unchanged
+	nau = update-index --no-assume-unchanged
+	aum = !git update-index --assume-unchanged -- $(git ls-files -m $*)
+	naum = !git update-index --no-assume-unchange -- $(git ls-files $*)
+	au-all = !git update-index --assume-unchanged -- $(git ls-files -m)
+	nau-all = !git update-index --no-assume-unchanged -- $(git ls-files -v | grep --colour=none ^h | cut -c 3-)
+
+	# Logs
+	lg = log --graph --pretty=graph
+	lga = log --graph --pretty=graph --all
+	lgb = log --graph --pretty=graph --all --simplify-by-decoration
+	wc = log --no-merges --pretty=fuller --stat
+	wph = log --no-merges --reverse --pretty=fuller --stat @{u}..
+	wpl = log --no-merges --reverse --pretty=fuller --stat ..@{u}
+
+	# Git SVN aliases
+	#slg = svn log -v                 # Show svn log (~log)
+	#sfr = svn find-rev               # Find a revision number or commit hash
+	#sph = svn dcommit                # Push local commits to remote repository (~push)
+	#spl = svn rebase                 # Fetch and merge remote changes into current branch (~pull)
+	#sfe = svn fetch                  # Fetch remote changes from current branch (~fetch)
+	#sfu = svn fetch svn              # Fetch remote changes from upstream (~fetch upstream)
+	#smu = merge -v git-svn           # Merge fetched remote changes into current branch (~merge upstream)
+	#smg = merge --squash -v          # Merge another git branch into current branch properly (~merge)
+	#spl-all = svn rebase --fetch-all # Fetch from ALL remote branches and update current branch (~pull --all)
+	#sfp = format-patch --no-prefix   # Format patches to be applied with SVN (~format-patch)
+
+[color]
+	ui = true
+[pager]
+	stash = false
+[merge]
+	log = true
+	#tool = kdiff3/vimdiff
+[format]
+	signoff = true
+[push]
+	default = simple
+[mergetool]
+	keepBackup = false
+[commit]
+	#template = ~/git-commit.template
+	# Set at machine / repository lvl
+[pretty]
+	graph = tformat:%C(auto)%h%d %s %C(cyan)%cN %C(bold)(%G?)%Creset, %Cgreen%cr
+
+[credential]
+	helper = cache --timeout=1800
+#[credential "https://github.com"]
+#	username = ******
+#[credential "https://gist.github.com"]
+#	username = ******
+
+#[achievement]
+#	# Icefox's git-achievements extension
+#	# @link https://github.com/icefox/git-achievements
+#	upload = true
+#
+#	# Pull request #68
+#	# @link https://github.com/icefox/git-achievements/pull/68
+#	branch = gh-pages
+
