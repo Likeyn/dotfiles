@@ -93,6 +93,13 @@ function randchars() {
 	echo ''
 }
 
+# Geolocates an IP address if provided, itself otherwise
+function iplocate() {
+	URL='http://ipinfo.io'
+	if [[ "$1" ]]; then URL="${URL}/${1}"; fi
+	curl -w '\n' $URL
+}
+
 # Bash prompt definition
 if exists __git_ps1; then
 	export GIT_PS1_SHOWDIRTYSTATE=1 GIT_PS1_SHOWCOLORHINTS=1 GIT_PS1_SHOWUPSTREAM=auto GIT_PS1_DESCRIBE_STYLE=branch
