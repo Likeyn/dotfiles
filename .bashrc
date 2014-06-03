@@ -61,14 +61,14 @@ export GPG_TTY=$(tty)
 if [ -d "${HOME}/bin" ]; then export PATH="${PATH}:${HOME}/bin"; fi
 
 # Includes supplied files
-include() { if [ -f $1 ]; then . $1; fi; }
+function include() { if [ -f $1 ]; then . $1; fi; }
 
 # Tests if a given command exists
-exists() { command -v $1 &> /dev/null; }
+function exists() { command -v $1 &> /dev/null; }
 
 # Go back x directories
 # @link http://alias.sh/go-back-n-directories
-b() {
+function b() {
 	if [ $# -eq 0 ]; then
 		cd ..
 	else
