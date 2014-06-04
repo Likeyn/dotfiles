@@ -162,14 +162,15 @@ fi
 
 # Apt-get aliases
 if exists apt-get; then
-	alias ags='apt-cache search'
-	alias agsh='apt-cache show'
+	alias ac='apt-cache'
+	alias acs='apt-cache search'
+	alias acsh='apt-cache show'
+	alias ag='sudo apt-get'
 	alias agi='sudo apt-get install'
 	alias agr='sudo apt-get remove'
-	alias agud='sudo apt-get update'
-	alias agug='sudo apt-get upgrade'
-	alias agc='sudo apt-get autoclean && sudo apt-get autoremove'
-	alias agu='echo "---[ Updating ]---" && agud && echo -e "\n---[ Upgrading ]---" && agug && echo -e "\n---[ Cleaning ]---" && agc'
+	alias agu='echo "---[ Updating ]---" && sudo apt-get update
+		&& echo -e "\n---[ Upgrading ]---" && sudo apt-get upgrade
+		&& echo -e "\n---[ Cleaning ]---" && sudo apt-get autoclean && sudo apt-get autoremove'
 fi
 
 # Symfony aliases
