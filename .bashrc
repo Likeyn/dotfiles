@@ -168,8 +168,8 @@ if exists apt-get; then
 	alias ag='sudo apt-get'
 	alias agi='sudo apt-get install'
 	alias agr='sudo apt-get remove'
-	alias agu='echo "---[ Updating ]---" && sudo apt-get update
-		&& echo -e "\n---[ Upgrading ]---" && sudo apt-get upgrade
+	alias agu='echo "---[ Updating ]---" && sudo apt-get update\
+		&& echo -e "\n---[ Upgrading ]---" && sudo apt-get upgrade\
 		&& echo -e "\n---[ Cleaning ]---" && sudo apt-get autoclean && sudo apt-get autoremove'
 fi
 
@@ -179,8 +179,8 @@ if exists emerge; then
 	alias ems='emerge -s'
 	alias emi='sudo emerge -av'
 	alias emr='sudo emerge -avc'
-	alias emu='echo "---[ Syncing ]---" && sudo emerge --sync
-		&& echo -e "\n---[ Updating ]---" && sudo emerge -auDN @world
+	alias emu='echo "---[ Syncing ]---" && sudo emerge --sync\
+		&& echo -e "\n---[ Updating ]---" && sudo emerge -auDN @world\
 		&& echo -e "\n---[ Cleaning ]---" && sudo emerge -ac && sudo eclean-pkg -d && sudo eclean-dist -d'
 fi
 
