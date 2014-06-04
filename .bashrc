@@ -173,6 +173,17 @@ if exists apt-get; then
 		&& echo -e "\n---[ Cleaning ]---" && sudo apt-get autoclean && sudo apt-get autoremove'
 fi
 
+# Emerge aliases
+if exists emerge; then
+	alias em='emerge'
+	alias ems='emerge -s'
+	alias emi='sudo emerge -av'
+	alias emr='sudo emerge -avc'
+	alias emu='echo "---[ Syncing ]---" && sudo emerge --sync
+		&& echo -e "\n---[ Updating ]---" && sudo emerge -auDN @world
+		&& echo -e "\n---[ Cleaning ]---" && sudo emerge -ac && sudo eclean-pkg -d && sudo eclean-dist -d'
+fi
+
 # Symfony aliases
 alias sfy='php symfony'
 alias scc='sfy cc'
