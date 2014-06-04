@@ -43,7 +43,7 @@
 	ph = push --follow-tags -v
 	pl = pull -v
 	fe = fetch -vp
-	fa = fetch --all -vp
+	fa = fetch --all -p
 	fu = fetch -vp upstream
 	mg = merge -v
 	mu = merge -v @{u}
@@ -89,7 +89,7 @@
 	lg = log --graph --pretty=graph
 	lga = log --graph --pretty=graph --all
 	lgb = log --graph --pretty=graph --all --simplify-by-decoration
-	wc = log --no-merges --pretty=fuller --stat
+	wc = log --no-merges --reverse --pretty=fuller --stat
 	wph = log --no-merges --reverse --pretty=fuller --stat @{u}..
 	wpl = log --no-merges --reverse --pretty=fuller --stat ..@{u}
 
