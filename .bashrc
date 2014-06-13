@@ -186,7 +186,7 @@ fi
 
 # Symfony aliases
 alias sfy='php symfony'
-alias scc='sfy cc'
+alias scc='php symfony cc'
 
 # Random cow quote on login
 if exists cowsay && exists fortune; then cowsay "$(fortune)"; fi;
