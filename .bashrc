@@ -103,9 +103,9 @@ function iplocate() {
 # Bash prompt definition
 if exists __git_ps1; then
 	export GIT_PS1_SHOWDIRTYSTATE=1 GIT_PS1_SHOWCOLORHINTS=1 GIT_PS1_SHOWUPSTREAM=auto GIT_PS1_DESCRIBE_STYLE=branch
-	export PS1='[\[\033[1;31m\]\A\[\033[00m\]] \[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[0;33m\]$(__git_ps1)\[\033[0m\]\$ '
+	export PS1='[\[\033[1;31m\]\A\[\033[00m\]] \[\033[01;32m\]\u\[\033[00m\]@\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[0;33m\]$(__git_ps1)\[\033[0m\]\$ '
 else
-	export PS1='[\[\033[1;31m\]\A\[\033[00m\]] \[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+	export PS1='[\[\033[1;31m\]\A\[\033[00m\]] \[\033[01;32m\]\u\[\033[00m\]@\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 fi
 
 
