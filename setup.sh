@@ -21,5 +21,5 @@ fi
 # All good, launching setup
 git clone $URL
 cd $DIR
-git submodule init
+git submodule update --init
 make install
