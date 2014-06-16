@@ -1,17 +1,17 @@
-[submodule ".vim/bundle/nerdtree"]
-	path = .vim/bundle/nerdtree
+[submodule ".vim.symlink/bundle/nerdtree"]
+	path = .vim.symlink/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule ".vim/bundle/vim-commentary"]
-	path = .vim/bundle/vim-commentary
+[submodule ".vim.symlink/bundle/vim-commentary"]
+	path = .vim.symlink/bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule ".vim/bundle/vim-speeddating"]
-	path = .vim/bundle/vim-speeddating
+[submodule ".vim.symlink/bundle/vim-speeddating"]
+	path = .vim.symlink/bundle/vim-speeddating
 	url = https://github.com/tpope/vim-speeddating.git
-[submodule ".vim/bundle/vim-repeat"]
-	path = .vim/bundle/vim-repeat
+[submodule ".vim.symlink/bundle/vim-repeat"]
+	path = .vim.symlink/bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
-[submodule ".vim/bundle/vim-surround"]
-	path = .vim/bundle/vim-surround
+[submodule ".vim.symlink/bundle/vim-surround"]
+	path = .vim.symlink/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule "bin/git-all"]
 	path = bin/git-all
