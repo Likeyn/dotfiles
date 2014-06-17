@@ -57,9 +57,6 @@ if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
 	runtime! macros/matchit.vim
 endif
 " Allow color schemes to do bright colors without forcing bold.
-if &t_Co == 8 && $TERM !~# '^linux'
-	set t_Co=16
-endif
 silent! colorscheme jellybeans " No error if colorscheme doesn't exist
 
 "" Commands & aliases
