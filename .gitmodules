@@ -16,3 +16,6 @@
 [submodule "bin/git-all"]
 	path = bin/git-all
 	url = https://github.com/Likeyn/git-all.git
+[submodule "bin/fasd"]
+	path = bin/fasd
+	url = https://github.com/clvv/fasd.git
