@@ -19,3 +19,6 @@
 [submodule "bin/fasd"]
 	path = bin/fasd
 	url = https://github.com/clvv/fasd.git
+[submodule ".vim.symlink/bundle/jellybeans.vim"]
+	path = .vim.symlink/bundle/jellybeans.vim
+	url = https://github.com/nanotech/jellybeans.vim.git

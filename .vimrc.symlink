@@ -13,11 +13,6 @@ set laststatus=2 " Always show the status line
 set showtabline=2 " Always show the tabs line
 set display+=lastline " Show as much as possible of the last line instead of @ chars
 filetype plugin indent on " Load file type plugins + indentation
-" Allow color schemes to do bright colors without forcing bold.
-if &t_Co == 8 && $TERM !~# '^linux'
-	set t_Co=16
-endif
-silent! colorscheme jellybeans " No error if colorscheme doesn't exist
 
 "" Whitespace
 "set nowrap " Don't wrap lines
@@ -55,12 +50,17 @@ set autoindent smartindent " Autoindentation behavior
 " Prevent '#' comments to be unindented (:help 'smartindent')
 inoremap # X#
 
-"" Plugins
+"" Pathogen-managed stuff
 execute pathogen#infect()
 " Load matchit.vim, but only if the user hasn't installed a newer version.
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
 	runtime! macros/matchit.vim
 endif
+" Allow color schemes to do bright colors without forcing bold.
+if &t_Co == 8 && $TERM !~# '^linux'
+	set t_Co=16
+endif
+silent! colorscheme jellybeans " No error if colorscheme doesn't exist
 
 "" Commands & aliases
 cmap !g !git
