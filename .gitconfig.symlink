@@ -42,7 +42,7 @@
 	# Fetch, merge & push
 	ph = push --follow-tags -v
 	pl = pull -v
-	fe = fetch -vp
+	fe = fetch -p
 	fa = fetch --all -p
 	fu = fetch -vp upstream
 	mg = merge -v
