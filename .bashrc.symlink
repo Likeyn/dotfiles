@@ -187,6 +187,8 @@ fi
 # Symfony aliases
 alias sfy='php symfony'
 alias scc='php symfony cc'
+lsmig() { i=1; for f in $(\ls -1 lib/migration/doctrine/); do echo "Version $i -- $f";i=$((i+1)); done; }
+migdiff() { comm <(git ls-tree --name-only "$1" -- lib/migration/doctrine/) <(g ls-tree --name-only "$2" -- lib/migration/doctrine/); }
 
 # Random cow quote on login
 if exists cowsay && exists fortune; then cowsay "$(fortune)"; fi;
