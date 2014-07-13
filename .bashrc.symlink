@@ -179,6 +179,7 @@ if exists emerge; then
 	alias ems='emerge -s'
 	alias emi='sudo emerge -av'
 	alias emr='sudo emerge -avc'
+	alias emc='sudo emerge -ac && sudo eclean-pkg -d && sudo eclean-dist -d'
 	alias emu='echo "---[ Syncing ]---" && sudo emerge --sync\
 		&& echo -e "\n---[ Updating ]---" && sudo emerge -auDN @world\
 		&& echo -e "\n---[ Cleaning ]---" && sudo emerge -ac && sudo eclean-pkg -d && sudo eclean-dist -d'
