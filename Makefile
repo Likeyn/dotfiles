@@ -49,8 +49,5 @@ _install/%: FORCE
 	# echo " * Symlinking $*${EXT} to ~/$*"
 	ln -isT ${DIR}/$*${EXT} ~/$*
 _uninstall/%: FORCE
-	if [ -L ~/$* -a "$$(readlink ~/$*)" = ${DIR}/$*${EXT} ]; then
-		# echo " * Removing symlink ~/$*"
-		rm -r ~/$*
-	fi
+	if [ -L ~/$* -a "$$(readlink ~/$*)" = "${DIR}/$*${EXT}" ]; then rm -r ~/$*; fi
 
