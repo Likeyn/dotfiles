@@ -1,0 +1,3 @@
+# Make git ignore things
+
+.vim.symlink/.netrwhist
