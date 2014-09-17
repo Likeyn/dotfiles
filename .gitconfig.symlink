@@ -27,14 +27,14 @@
 	an = add -N
 	aa = add --all
 	ci = commit -v
-	cs = commit -vsS
+	cs = commit -vS
 	cp = cherry-pick
 	ca = commit -v --amend
 	cia = commit -va
-	csa = commit -vsaS
+	csa = commit -vaS
 	cpn = cherry-pick -nx
 	caa = commit -va --amend
-	cas = commit -vsS --amend
+	cas = commit -vS --amend
 	rs = reset
 	rsl = reset HEAD^
 	an-all = !git add -N $(git ls-files --exclude-standard -o)
