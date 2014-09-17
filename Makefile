@@ -14,9 +14,9 @@ TARGETS := ${INSTALL} ${UNINSTALL}
 all: help
 help:
 	echo "Try not. Do. Or do not. There is no try."
-install: bash git vim homebin
+install: bash git tmux vim homebin
 	echo " * All done."
-uninstall: unbash ungit unvim unhomebin
+uninstall: unbash ungit untmux unvim unhomebin
 	echo " * All done."
 
 # Bash
@@ -30,6 +30,12 @@ git: _install/.gitconfig _install/.gitignore_global
 	echo " * Git dotfiles installed"
 ungit: _uninstall/.gitconfig _uninstall/.gitignore_global
 	echo " * Git dotfiles uninstalled"
+
+# Tmux
+tmux: _install/.tmux.conf
+	echo " * Tmux dotfiles installed"
+untmux: _uninstall/.tmux.conf
+	echo " * Tmux dotfiles uninstalled"
 
 # Vim
 vim: _install/.vim _install/.vimrc

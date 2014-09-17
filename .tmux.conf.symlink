@@ -1,0 +1,8 @@
+# Config
+set -g display-time 2000
+set -g history-limit 5000
+set -g monitor-activity on
+
+# Custom keys
+bind A setw monitor-activity
+bind S setw synchronize-panes
