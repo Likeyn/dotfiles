@@ -16,7 +16,7 @@
 	ba = branch -a
 	bv = branch -vv
 	co = checkout
-	sh = show
+	sh = show --pretty=fuller
 	di = diff
 	dc = diff --cached
 	fp = format-patch
@@ -44,7 +44,6 @@
 	pl = pull -v
 	fe = fetch -p
 	fa = fetch --all -p
-	fu = fetch -vp upstream
 	mg = merge -v
 	mu = merge -v @{u}
 	mgt = mergetool
@@ -87,23 +86,24 @@
 
 	# Logs
 	lg = log --graph --pretty=graph
+	lgu = log --graph --pretty=graph @{u}
 	lga = log --graph --pretty=graph --all
 	lgb = log --graph --pretty=graph --all --simplify-by-decoration
 	wc = log --no-merges --reverse --pretty=fuller --stat
 	wph = log --no-merges --reverse --pretty=fuller --stat @{u}..
 	wpl = log --no-merges --reverse --pretty=fuller --stat ..@{u}
 
-	# Git SVN aliases
-	#slg = svn log -v                 # Show svn log (~log)
-	#sfr = svn find-rev               # Find a revision number or commit hash
-	#sph = svn dcommit                # Push local commits to remote repository (~push)
-	#spl = svn rebase                 # Fetch and merge remote changes into current branch (~pull)
-	#sfe = svn fetch                  # Fetch remote changes from current branch (~fetch)
-	#sfu = svn fetch svn              # Fetch remote changes from upstream (~fetch upstream)
-	#smu = merge -v git-svn           # Merge fetched remote changes into current branch (~merge upstream)
-	#smg = merge --squash -v          # Merge another git branch into current branch properly (~merge)
-	#spl-all = svn rebase --fetch-all # Fetch from ALL remote branches and update current branch (~pull --all)
-	#sfp = format-patch --no-prefix   # Format patches to be applied with SVN (~format-patch)
+#	# Git SVN aliases
+#	slg = svn log -v                 # Show svn log (~log)
+#	sfr = svn find-rev               # Find a revision number or commit hash
+#	sph = svn dcommit                # Push local commits to remote repository (~push)
+#	spl = svn rebase                 # Fetch and merge remote changes into current branch (~pull)
+#	sfe = svn fetch                  # Fetch remote changes from current branch (~fetch)
+#	sfu = svn fetch svn              # Fetch remote changes from upstream (~fetch upstream)
+#	smu = merge -v git-svn           # Merge fetched remote changes into current branch (~merge upstream)
+#	smg = merge --squash -v          # Merge another git branch into current branch properly (~merge)
+#	spl-all = svn rebase --fetch-all # Fetch from ALL remote branches and update current branch (~pull --all)
+#	sfp = format-patch --no-prefix   # Format patches to be applied with SVN (~format-patch)
 
 [color]
 	ui = true
@@ -111,21 +111,18 @@
 	stash = false
 [merge]
 	log = true
-	#tool = kdiff3/vimdiff
-[format]
-	signoff = true
+	# tool = kdiff3/vimdiff
 [push]
-	default = simple
+	# default = simple
 [mergetool]
 	keepBackup = false
 [commit]
-	#template = ~/git-commit.template
-	# Set at machine / repository lvl
+	# template = ~/git-commit.template
 [pretty]
 	graph = tformat:%C(auto)%h%d %s %C(cyan)%cN %C(bold)(%G?)%Creset, %Cgreen%cr
 
-[credential]
-	helper = cache --timeout=1800
+#[credential]
+#	helper = cache --timeout=1800
 #[credential "https://github.com"]
 #	username = ******
 #[credential "https://gist.github.com"]

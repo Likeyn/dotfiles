@@ -60,8 +60,8 @@ endif
 silent! colorscheme jellybeans " No error if colorscheme doesn't exist
 
 "" Commands & aliases
-cmap !g !git
-cmap !sf !./symfony
+cmap !g<Space> !git<Space>
+cmap !sfy !./symfony
 cmap !scc !./symfony cc
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
