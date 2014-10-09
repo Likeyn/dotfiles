@@ -44,6 +44,7 @@
 	pl = pull -v
 	fe = fetch -p
 	fa = fetch --all -p
+	ru = remote update -p
 	mg = merge -v
 	mu = merge -v @{u}
 	mgt = mergetool
@@ -70,6 +71,11 @@
 	rbs = rebase --skip
 	rbc = rebase --continue
 	rbe = rebase --edit-todo
+
+	# Submodules
+	sm = submodule
+	smf = submodule foreach
+	smu = submodule update --init
 
 	# Files & index
 	cl = clean
