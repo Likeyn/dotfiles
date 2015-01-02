@@ -15,6 +15,7 @@
 	br = branch
 	ba = branch -a
 	bv = branch -vv
+	rv = remote -vv
 	co = checkout
 	sh = show --pretty=fuller
 	di = diff
@@ -41,7 +42,7 @@
 
 	# Fetch, merge & push
 	ph = push --follow-tags -v
-	pl = pull -v
+	pl = pull
 	fe = fetch -p
 	fa = fetch --all -p
 	ru = remote update -p
