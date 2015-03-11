@@ -13,6 +13,7 @@ set laststatus=2 " Always show the status line
 set showtabline=2 " Always show the tabs line
 set display+=lastline " Show as much as possible of the last line instead of @ chars
 filetype plugin indent on " Load file type plugins + indentation
+set omnifunc=syntaxcomplete#Complete " Enable code completion
 
 "" Whitespace
 "set nowrap " Don't wrap lines
