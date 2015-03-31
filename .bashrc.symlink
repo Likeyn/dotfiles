@@ -127,7 +127,7 @@ if exists fasd; then
 
 	# Fasd aliases
 	alias c='f -e cat'
-	if exists vim; then alias v='a -e vim'; fi
+	if exists gvim; then alias v='a -e gvim'; elif exists vim; then alias v='a -e vim'; elif exists vi; then alias v='a -e vi'; fi
 	if exists nano; then alias n='f -e nano'; fi
 	if exists less; then alias l='f -e less'; fi
 	if exists most; then alias m='f -e most'; fi
