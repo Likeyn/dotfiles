@@ -194,13 +194,22 @@ migdiff() { comm <(git ls-tree --name-only "$1" -- lib/migration/doctrine/) <(g 
 # Random cow quote on login
 if exists cowsay && exists fortune; then cowsay "$(fortune)"; fi;
 
-# Happy Programmer's Day
+# Happy Programmers' Day
 # @link https://en.wikipedia.org/wiki/Programmers%27_Day
-if [[ $( date +%-j ) -eq $(( 2 ** 8 )) ]]; then
+if [[ $(date +%-j) -eq $((2 ** 8)) ]]; then
 	if exists figlet; then
-		figlet "Happy Programmer's Day"
+		figlet "Happy Programmers' day"
 	else
-		echo "Happy Programmer's Day"
+		echo "Happy Programmers' Day"
 	fi
 fi
 
+# Happy Sysadmin Day
+# @link https://en.wikipedia.org/wiki/System_Administrator_Appreciation_Day
+if [[ "$(date +%F)" == "$(date +%Y-07)-$(cal -m 07 $(date +%Y)|tail -n+3|cut -c13,14|sort -rn|head -n1)" ]]; then
+	if exists figlet; then
+		figlet "Happy Sysadmin Day"
+	else
+		echo "Happy Sysadmin Day"
+	fi
+fi
