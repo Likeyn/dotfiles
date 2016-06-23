@@ -19,7 +19,7 @@ set omnifunc=syntaxcomplete#Complete " Enable code completion
 "set nowrap " Don't wrap lines
 set smarttab " Insert and delete a shiftwidth worth of space
 set textwidth=0 " Don't limit text width
-set tabstop=2 shiftwidth=2 expandtab " A tab is two spaces
+set tabstop=3 softtabstop=3 shiftwidth=3 noexpandtab " A tab is worth three spaces
 set list " Show whitespace chars using the listchars below
 set listchars=eol:¶,tab:›·,trail:~,extends:>,precedes:<,nbsp:_
 set backspace=indent,eol,start " Backspace through everything in insert mode
@@ -62,7 +62,7 @@ silent! colorscheme jellybeans " No error if colorscheme doesn't exist
 
 "" Commands & aliases
 cmap !g<Space> !git<Space>
-cmap !sfy !./symfony
-cmap !scc !./symfony cc
+" cmap !sfy !./symfony
+" cmap !scc !./symfony cc
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
