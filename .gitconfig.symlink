@@ -41,7 +41,7 @@
 	an-all = !git add -N $(git ls-files --exclude-standard -o)
 
 	# Fetch, merge & push
-	ph = push --follow-tags -v
+	ph = push -v
 	pl = pull
 	fe = fetch -p
 	fa = fetch --all -p
@@ -121,6 +121,7 @@
 	# tool = kdiff3/vimdiff
 [push]
 	# default = simple
+	followTags = True
 [mergetool]
 	keepBackup = false
 [commit]
