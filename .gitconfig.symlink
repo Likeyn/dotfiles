@@ -116,6 +116,7 @@
 	ui = true
 [pager]
 	stash = false
+	branch = false
 [merge]
 	log = true
 	# tool = kdiff3/vimdiff
