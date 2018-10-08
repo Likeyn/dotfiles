@@ -10,6 +10,7 @@
 #	pwgen    - Password generation
 #	tig      - Command-line git GUI
 #	fasd     - Quick file/dir access
+#	testdisk - Data recovery utility
 #	links2   - Text-based web browser
 #	tudu     - Hierarchical ToDo list
 #	htop     - Interactive process viewer
@@ -189,7 +190,7 @@ fi
 alias sfy='php symfony'
 alias scc='php symfony cc'
 lsmig() { local i=1; for f in $(\ls -1 lib/migration/doctrine/); do echo "Version $i -- $f";i=$((i+1)); done; }
-migdiff() { comm <(git ls-tree --name-only "$1" -- lib/migration/doctrine/) <(g ls-tree --name-only "$2" -- lib/migration/doctrine/); }
+migdiff() { comm <(git ls-tree --name-only "$1" -- src/Scs/Migrations/) <(g ls-tree --name-only "$2" -- src/Scs/Migrations/); }
 
 # Random cow quote on login
 if exists cowsay && exists fortune; then cowsay "$(fortune)"; fi;
