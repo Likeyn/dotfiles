@@ -34,3 +34,6 @@
 [submodule ".vim.symlink/bundle/tagbar"]
 	path = .vim.symlink/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
+[submodule ".vim.symlink/bundle/ansible-vim"]
+	path = .vim.symlink/bundle/ansible-vim
+	url = git@github.com:pearofducks/ansible-vim.git
