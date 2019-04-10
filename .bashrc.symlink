@@ -101,15 +101,6 @@ function iplocate() {
 	curl -w '\n' $URL
 }
 
-# Bash prompt definition
-if exists __git_ps1; then
-	export GIT_PS1_SHOWDIRTYSTATE=1 GIT_PS1_SHOWCOLORHINTS=1 GIT_PS1_SHOWUPSTREAM=auto GIT_PS1_DESCRIBE_STYLE=branch
-	export PS1='[\[\033[1;31m\]\A\[\033[00m\]] \[\033[01;32m\]\u\[\033[00m\]@\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[0;33m\]$(__git_ps1)\[\033[0m\]\$ '
-else
-	export PS1='[\[\033[1;31m\]\A\[\033[00m\]] \[\033[01;32m\]\u\[\033[00m\]@\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-fi
-
-
 # Alias definitions
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -127,10 +118,8 @@ if exists fasd; then
 	eval "$(fasd --init auto)"
 
 	# Fasd aliases
-	alias c='f -e cat'
+	# alias c='f -e cat'
 	if exists gvim; then alias v='a -e gvim'; elif exists vim; then alias v='a -e vim'; elif exists vi; then alias v='a -e vi'; fi
-	if exists nano; then alias n='f -e nano'; fi
-	if exists less; then alias l='f -e less'; fi
 	if exists most; then alias m='f -e most'; fi
 fi
 
@@ -146,6 +135,18 @@ alias tube='display http://www.tfl.gov.uk/assets/downloads/standard-tube-map.gif
 
 # Git aliases
 if exists git; then
+
+	if ! exists _git && exists _completion_loader; then
+		_completion_loader git
+	fi
+
+	# Bash prompt definition
+	if exists __git_ps1; then
+		export GIT_PS1_SHOWDIRTYSTATE=1 GIT_PS1_SHOWCOLORHINTS=1 GIT_PS1_SHOWUPSTREAM=auto GIT_PS1_DESCRIBE_STYLE=branch
+		export PS1='[\[\033[1;31m\]\A\[\033[00m\]] \[\033[01;32m\]\u\[\033[00m\]@\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[0;33m\]$(__git_ps1)\[\033[0m\]\$ '
+	else
+		export PS1='[\[\033[1;31m\]\A\[\033[00m\]] \[\033[01;32m\]\u\[\033[00m\]@\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+	fi
 
 	alias g=git
 	alias gk=gitk
