@@ -165,13 +165,13 @@ fi
 # Apt-get aliases
 if exists apt-get; then
 	alias ac='apt-cache'
-	alias acs='apt-cache search'
-	alias acsh='apt-cache show'
+	alias ags='apt-cache search'
+	alias agsh='apt-cache show'
 	alias ag='sudo apt-get'
 	alias agi='sudo apt-get install'
 	alias agr='sudo apt-get remove'
 	alias agu='echo "---[ Updating ]---" && sudo apt-get update\
-		&& echo -e "\n---[ Upgrading ]---" && sudo apt-get upgrade\
+		&& echo -e "\n---[ Upgrading ]---" && sudo apt-get -y upgrade\
 		&& echo -e "\n---[ Cleaning ]---" && sudo apt-get autoclean && sudo apt-get autoremove'
 fi
 
