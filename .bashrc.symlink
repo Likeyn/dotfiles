@@ -5,6 +5,7 @@
 #	mutt     - Email client
 #	fortune  - Random quotes
 #	atool    - Archive manager
+#	pup      - HTML parser CLI
 #	bar      - Shell progress bar
 #	tree     - Files/Dir tree list
 #	pwgen    - Password generation
