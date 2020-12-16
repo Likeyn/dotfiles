@@ -48,6 +48,7 @@
 	ru = remote update -p
 	mg = merge -v
 	mu = merge -v @{u}
+	mga = merge --abort
 	mgt = mergetool
 
 	# Stash
