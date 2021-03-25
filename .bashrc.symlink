@@ -102,6 +102,9 @@ function iplocate() {
 	curl -w '\n' $URL
 }
 
+# Set EDITOR to vim if it exists (why wouldn't it though?? Vim is love, Vim is life)
+if exists vim; then export EDITOR="$(which vim)"; fi
+
 # Alias definitions
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -142,6 +145,7 @@ if exists git; then
 	fi
 
 	# Bash prompt definition
+	if ! exists __git_ps1; then include /usr/share/git/completion/git-prompt.sh; fi
 	if exists __git_ps1; then
 		export GIT_PS1_SHOWDIRTYSTATE=1 GIT_PS1_SHOWCOLORHINTS=1 GIT_PS1_SHOWUPSTREAM=auto GIT_PS1_DESCRIBE_STYLE=branch
 		export PS1='[\[\033[1;31m\]\A\[\033[00m\]] \[\033[01;32m\]\u\[\033[00m\]@\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[0;33m\]$(__git_ps1)\[\033[0m\]\$ '
