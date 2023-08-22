@@ -66,3 +66,7 @@ cmap !g<Space> !git<Space>
 " cmap !scc !./symfony cc
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
+" Auto-set makeprg and vim-dispatch vars for given filetypes
+autocmd FileType python let b:start='python3'
+autocmd FileType python let b:dispatch='python3 %'
+autocmd FileType python setlocal makeprg=python3\ %
