@@ -140,12 +140,13 @@ alias tube='display http://www.tfl.gov.uk/assets/downloads/standard-tube-map.gif
 # Git aliases
 if exists git; then
 
-	if ! exists _git && exists _completion_loader; then
+	if exists _completion_loader; then
 		_completion_loader git
 	fi
 
 	# Bash prompt definition
-	if ! exists __git_ps1; then include /usr/share/git/completion/git-prompt.sh; fi
+	if ! exists __git_ps1 && exists /usr/lib/git-core/git-sh-prompt; then include /usr/lib/git-core/git-sh-prompt; fi
+	if ! exists __git_ps1 && exists /usr/share/git/completion/git-prompt.sh; then include /usr/share/git/completion/git-prompt.sh; fi
 	if exists __git_ps1; then
 		export GIT_PS1_SHOWDIRTYSTATE=1 GIT_PS1_SHOWCOLORHINTS=1 GIT_PS1_SHOWUPSTREAM=auto GIT_PS1_DESCRIBE_STYLE=branch
 		export PS1='[\[\033[1;31m\]\A\[\033[00m\]] \[\033[01;32m\]\u\[\033[00m\]@\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[0;33m\]$(__git_ps1)\[\033[0m\]\$ '
@@ -164,6 +165,9 @@ if exists git; then
 	if exists _git; then
 		complete -o default -o nospace -F _git g
 		complete -o default -o nospace -F _git gp
+	elif exists __git_wrap__git_main; then
+		complete -o default -o nospace -F __git_wrap__git_main g
+		complete -o default -o nospace -F __git_wrap__git_main gp
 	fi
 fi
 
