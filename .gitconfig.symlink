@@ -9,6 +9,9 @@
 	# This should also be set at a machine level if
 	# paths happen to be different between machines
 
+[gpg "ssh"]
+	allowedSignersFile = ~/.ssh/allowed_signers
+
 [alias]
 	# Basics
 	st = status -bs
