@@ -40,3 +40,6 @@
 [submodule ".vim.symlink/bundle/vim-dispatch"]
 	path = .vim.symlink/bundle/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch.git
+[submodule "vim-polyglot"]
+	path = vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot.git
