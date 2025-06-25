@@ -46,7 +46,7 @@ endif
 
 "" Code options
 " let php_folding=1
-let php_sql_query=1
+" let php_sql_query=1
 set autoindent smartindent " Autoindentation behavior
 " Prevent '#' comments to be unindented (:help 'smartindent')
 inoremap # X#
@@ -66,6 +66,8 @@ cmap !g<Space> !git<Space>
 " cmap !scc !./symfony cc
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
+" Record each new buffer in fasd history
+autocmd BufReadPost * silent call system('fasd -A '.expand('%'))
 " Auto-set makeprg and vim-dispatch vars for given filetypes
 autocmd FileType python let b:start='python3'
 autocmd FileType python let b:dispatch='python3 %'
