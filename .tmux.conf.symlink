@@ -8,4 +8,5 @@ set -g default-terminal screen-256color
 # Custom keys
 bind A setw monitor-activity
 bind I setw monitor-silence 30
+bind R setw monitor-silence 0
 bind S setw synchronize-panes
