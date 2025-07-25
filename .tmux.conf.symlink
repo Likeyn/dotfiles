@@ -6,7 +6,17 @@ set -g history-limit 5000
 set -g default-terminal screen-256color
 
 # Custom keys
-bind A setw monitor-activity
-bind I setw monitor-silence 30
-bind R setw monitor-silence 0
+bind A {
+	setw monitor-activity on
+	set -a window-status-style underscore
+}
+bind I {
+	setw monitor-silence 30
+	set -a window-status-style strikethrough
+}
+bind R {
+	setw monitor-activity off
+	setw monitor-silence 0
+	set -a window-status-style nounderscore,nostrikethrough
+}
 bind S setw synchronize-panes

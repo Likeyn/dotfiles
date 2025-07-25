@@ -150,3 +150,6 @@
 #	# @link https://github.com/icefox/git-achievements/pull/68
 #	branch = gh-pages
 
+[credential "https://gitlab.qosenergy.com"]
+	helper = 
+	helper = !/usr/bin/glab auth git-credential
