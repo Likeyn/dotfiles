@@ -218,7 +218,8 @@ fi
 
 # Happy Sysadmin Day
 # @link https://en.wikipedia.org/wiki/System_Administrator_Appreciation_Day
-if exists cal && [[ "$(date +%F)" == "$(date +%Y-07)-$(cal -m 07 $(date +%Y)|tail -n+3|cut -c13,14|sort -rn|head -n1)" ]]; then
+# Note: use `cut -c 13,14` instead if cal weeks start on Monday
+if exists cal && [[ "$(date +%F)" == "$(date +%Y-07)-$(cal -m 07 2025|cut -c 16,17|tr -d '[:space:]'|tail -c2)" ]]; then
 	if exists figlet; then
 		figlet "Happy Sysadmin Day"
 	else
